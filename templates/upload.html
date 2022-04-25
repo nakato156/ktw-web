@@ -1,0 +1,34 @@
+{% extends "header.html" %}
+
+{% block linksHeader %}
+<title>Subir Programa</title>
+<link rel="stylesheet" href="{{url_for('static', filename='css/upload.css')}}">
+<body>
+{% endblock %}
+
+{% block bodyBlock %}
+<section class="sectionForm">
+    <form id="formulario">
+        <div class="mb-3">
+            <label for="nameProgram" class="form-label">Nombre del programa</label>
+            <input type="text" name="name" class="form-control" id="nameProgram" placeholder="mi programa">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text">Win</span>
+            <input type="text" name="win" class="form-control" placeholder="Arquitectura" aria-label="Arquitectura">
+            <span class="input-group-text">V</span>
+            <input type="text" name="version" class="form-control" placeholder="1.0.0" aria-label="version">
+        </div>
+        <div class="mb-3">
+            <label for="formFile" class="form-label">Archivo</label>
+            <input class="form-control" name="file" type="file" id="formFile" accept=".exe">
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>    
+    <div id="myalert" class="alert"></div>
+</section>
+{% endblock %}
+
+{% block Scripts %}
+<script src="{{url_for('static', filename='js/upload.js')}}"></script>
+{% endblock %}

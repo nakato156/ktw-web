@@ -1,0 +1,25 @@
+{% extends "header.html" %}
+
+{% block linksHeader %}
+<title>Login Admin</title>
+<link rel="stylesheet" href="{{url_for('static', filename='css/upload.css')}}">
+{% endblock %}
+
+{% block bodyBlock %}
+<section class="sectionForm">
+    <form id="formAdmin">
+        <div class="mb-3">
+            <label for="UsernameAdmin" class="form-label">Usuario</label>
+            <input type="text" name="username" class="form-control" id="UsernameAdmin" placeholder="My Username">
+        </div>
+        <div class="mb-3">
+            <label for="passwordAdmin" class="form-label">Contraseña</label>
+            <input type="password" name="password" class="form-control" id="passwordAdmin">
+        </div>
+        <button type="submit" class="btn btn-primary">Entrar</button>
+    </form>    
+</section>
+{% endblock %}
+{% block Scripts %}
+<script src="{{url_for('static', filename='js/login_admin.js')}}"></script>
+{% endblock %}

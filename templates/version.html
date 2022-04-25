@@ -1,0 +1,24 @@
+{% extends "header.html" %}
+
+{% block linksHeader %}
+<title>Release - {{program}}</title>
+<link rel="stylesheet" href="{{url_for('static',filename='css/versions.css')}}">
+{% endblock %}
+
+{% block bodyBlock %}
+<section class="intro">
+    <div class="program">
+        <h1>{{program}}</h1>
+    </div>
+</section>
+<section class="info">
+
+</section>
+<section class="moreVersions">
+    
+</section>
+<div class='box'>
+    <div class='wave -one'></div>
+    <div class='wave -three'></div>
+</div>
+{% endblock %}

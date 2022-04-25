@@ -1,0 +1,50 @@
+{% extends "header.html" %}
+
+{% block linksHeader %}
+<title>KTW</title>
+<link rel="stylesheet" href="{{url_for('static', filename='css/home.css')}}">
+<link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+{% endblock %}
+
+{% block bodyBlock %}
+<nav class="navbar navbar-expand-lg navbar navbar-dark" style="background-color: #19BF82;">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="{{url_for('static', filename='img/logo_ktw.png')}}" alt="" width="40" height="40" class="d-inline-block align-text-top">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="./ktw/upload">Subir programa</a>
+            </li>
+        </ul>
+        <form class="d-flex" id="formSearch">
+            <input list="sugerencias" id="inputSearch" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <datalist id="sugerencias">
+            </datalist>
+            <button class="btn btn-outline-light" type="submit">Buscar</button>
+        </form>
+        </div>
+    </div>
+</nav>
+<section class="infoktw">
+    <div>
+        KTW siglas de Kit de Trabajo para Windows, es una herramienta de linea de comandos para poder instalar programas de forma sencilla.
+    </div>
+</section>
+<section class="secDownload">
+    <div class="downloadsButtons">
+        <button id="btnDownload" type="button" class="btn btn-success btn-lg">Descargar&nbsp;&nbsp;<i class='bx bx-download'></i></button>
+    </div>
+</section>
+{% endblock %}
+
+{% block Scripts %}
+<script src="{{url_for('static', filename='js/home.js')}}"></script>
+{% endblock %}

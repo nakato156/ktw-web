@@ -1,0 +1,9 @@
+.sectionForm {
+    max-width: 60%;
+    height: 100vh;
+    padding: 10px;
+    margin: auto;
+}
+.sectionForm>form{
+    margin-top: calc(100vh/6);
+}

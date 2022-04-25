@@ -1,0 +1,54 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box; 
+}
+body {
+    background: #e0dada;
+}
+
+.SecProgram{
+    width: 100%;
+    height: auto;
+    padding: 60px 10px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+.SecProgram>div{
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 1px solid #9A00C2;
+    display: flex;
+    justify-content: center;
+}
+.SecProgram>div:hover {
+    transition: .3s;
+    background: #a503ce3b;
+}
+.nameProgram {
+    z-index: -1;
+    margin: auto;
+    text-align: center;
+}
+.nameProgram>img {
+    width: 150px;
+    height: 150px;
+}
+
+.div-download{
+    text-align: center;
+    padding-left: 10px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+.div-download>a {
+    font-size: 18px;
+    text-decoration: none;
+}
+.div-download>i{
+    margin-left: 6px;
+    font-size: 24px;
+}

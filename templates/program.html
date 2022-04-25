@@ -1,0 +1,73 @@
+{% extends "header.html" %}
+
+{% block linksHeader %}
+<title>KTW | {{program}}</title>
+<link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+<link rel="stylesheet" href="{{url_for('static', filename='css/program.css')}}">
+{% endblock %}
+
+{% block bodyBlock %}
+<section class="info">
+    <section class="SecProgram">
+        <div>
+            <div class="nameProgram">
+                <img src="{{url_for('static', filename='img/'+program+'.png')}}" alt="{{program}}">
+                <h3>{{program}}</h3>
+            </div>
+        </div>
+    </section>
+    <div class="description"></div>
+    <div class="versions">
+        <div class="container-fluid">
+            <div class="row">
+            {% for vers in versions %}
+                {% set splited = vers.split('-') %}
+                {% set v = splited[-2] %}
+                {% set win = splited[-1].split('.')[0] %}
+                <div class="col-6 div-download">
+                    <a href="#" class="linkDownload" inf-program='{{program}}' inf-win='{{win}}' inf-v='{{v}}' inf-fname='{{vers}}')>{{vers}}</a><i class="bx bx-download"></i>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block Scripts %}
+<script>
+    window.onload = init;
+    function init(){
+        const linksDownloads = document.getElementsByClassName("linkDownload")
+        for(let i=0; i<linksDownloads.length; i++){
+            linksDownloads[i].addEventListener('click', e=>{
+                const element = e.target;
+                const programName = element.getAttribute('inf-program')
+                const win = element.getAttribute('inf-win')
+                const version = element.getAttribute('inf-v')
+                const filename = element.getAttribute('inf-fname')
+                download(programName, win, version, filename)
+            })
+        }
+    }
+    function download(program, win, version, filename){
+        fetch(`../../install/program/${program}?win=${win}&version=${version}`,{
+            method:"POST",
+        })
+        .then(req=>req.blob())
+        .then(async res=>{
+            if(res.type == "application/json") {
+                res = JSON.parse(await res.text())
+            }
+            console.log(res)
+            if(res.error){
+                throw res
+            }else{
+                console.log('else')
+                downloadBlob(res, filename)
+            }
+        })
+        .catch(err=>alert(err.error))
+    }
+</script>
+{% endblock %}
